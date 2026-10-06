@@ -1,3 +1,5 @@
+![CI](https://github.com/devisonsantana/desafio-dev/actions/workflows/ci.yml/badge.svg)
+
 # Desafio técnico
 
 Aplicação de console em .NET 10 para resolver três exercícios: cálculo de comissão por vendedor, movimentação de estoque e cálculo de juros simples por atraso.
@@ -37,12 +39,12 @@ Os valores são calculados usando `decimal`. A comissão de cada venda não é a
 
 Resultado exibido para o arquivo de exemplo:
 
-| Vendedor | Total vendido | Comissão |
-|---|---:|---:|
-| Ana Lima | R$ 8.763,95 | R$ 404,98 |
-| Carlos Oliveira | R$ 7.928,35 | R$ 379,37 |
-| João Silva | R$ 10.754,70 | R$ 495,68 |
-| Maria Souza | R$ 9.874,30 | R$ 465,95 |
+| Vendedor        | Total vendido |  Comissão |
+| --------------- | ------------: | --------: |
+| Ana Lima        |   R$ 8.763,95 | R$ 404,98 |
+| Carlos Oliveira |   R$ 7.928,35 | R$ 379,37 |
+| João Silva      |  R$ 10.754,70 | R$ 495,68 |
+| Maria Souza     |   R$ 9.874,30 | R$ 465,95 |
 
 ### 2. Movimentação de estoque
 
