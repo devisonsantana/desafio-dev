@@ -1,4 +1,5 @@
-﻿using Desafio.Core;
+﻿using System.Text.Json;
+using Desafio.Core;
 
 namespace Desafio.Infrastructure.Tests;
 
@@ -82,5 +83,54 @@ public class JsonFileReaderTests
         Assert.Equal(102, result.Products[1].Code);
         Assert.Equal("Caderno Universitário", result.Products[1].Description);
         Assert.Equal(75, result.Products[1].StockQuantity);
+    }
+
+    [Fact]
+    public async Task ReadJsonAsync_ShouldThrowWhenSalesFileDoesNotExist()
+    {
+        using var directory = new TempDirectory();
+        var filename = "vendas.json";
+        var reader = new JsonFileReader(directory.BaseDirectory);
+
+        await Assert.ThrowsAsync<FileNotFoundException>(
+            () => reader.ReadJsonAsync<SalesFile>(filename));
+    }
+
+    [Fact]
+    public async Task ReadJsonAsync_ShouldThrowWhenSalesJsonIsInvalid()
+    {
+        using var directory = new TempDirectory();
+        var filename = "vendas.json";
+
+        await File.WriteAllTextAsync(
+            Path.Combine(directory.BaseDirectory, filename),
+            "{ json inválido");
+
+        var reader = new JsonFileReader(directory.BaseDirectory);
+
+        await Assert.ThrowsAsync<JsonException>(
+            () => reader.ReadJsonAsync<SalesFile>(filename));
+    }
+    [Fact]
+    public void Constructor_WithEmptyDirectory_Throws()
+        => Assert.Throws<ArgumentException>(() => new JsonFileReader(" "));
+
+    [Fact]
+    public async Task ReadJsonAsync_WithEmptyFilename_Throws()
+    {
+        using var directory = new TempDirectory();
+        var reader = new JsonFileReader(directory.BaseDirectory);
+
+        await Assert.ThrowsAsync<ArgumentException>(() => reader.ReadJsonAsync<SalesFile>(" "));
+    }
+
+    [Fact]
+    public async Task ReadJsonAsync_WhenJsonIsNull_Throws()
+    {
+        using var directory = new TempDirectory();
+        await File.WriteAllTextAsync(Path.Combine(directory.BaseDirectory, "vendas.json"), "null");
+        var reader = new JsonFileReader(directory.BaseDirectory);
+
+        await Assert.ThrowsAsync<InvalidOperationException>(() => reader.ReadJsonAsync<SalesFile>("vendas.json"));
     }
 }

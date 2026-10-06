@@ -28,15 +28,10 @@ public sealed class Sale
             field = value;
         }
     }
-    public decimal Commission
+    public decimal Commission => Value switch
     {
-        get
-        {
-            if (Value < 100)
-                return 0;
-            if (Value < 500)
-                return Value * 0.01M;
-            return Value * 0.05M;
-        }
-    }
+        < 100 => 0,
+        < 500 => Value * 0.01M,
+        _ => Value * 0.05M
+    };
 }
