@@ -1,6 +1,7 @@
 using Desafio.Core;
+using Desafio.Infrastructure.ModelViews;
 
-namespace Desafio.Infrastructure;
+namespace Desafio.Infrastructure.Services;
 
 public sealed class StockCalculator
 {

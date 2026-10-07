@@ -1,4 +1,4 @@
-namespace Desafio.Infrastructure;
+namespace Desafio.Infrastructure.ModelViews;
 
 public sealed class SellerCommission
 {

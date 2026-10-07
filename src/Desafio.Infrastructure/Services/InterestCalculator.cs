@@ -1,4 +1,4 @@
-namespace Desafio.Infrastructure;
+namespace Desafio.Infrastructure.Services;
 
 public static class InterestCalculator
 {

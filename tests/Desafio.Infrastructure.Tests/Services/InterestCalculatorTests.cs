@@ -1,4 +1,6 @@
-namespace Desafio.Infrastructure.Tests;
+using Desafio.Infrastructure.Services;
+
+namespace Desafio.Infrastructure.Tests.Services;
 
 public class InterestCalculatorTests
 {

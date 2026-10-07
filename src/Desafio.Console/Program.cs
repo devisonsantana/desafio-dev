@@ -2,7 +2,8 @@
 
 using System;
 using System.Globalization;
-using Desafio.Infrastructure;
+using Desafio.Infrastructure.ModelViews;
+using Desafio.Infrastructure.Services;
 
 class Program
 {

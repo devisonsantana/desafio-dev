@@ -1,8 +1,11 @@
-namespace Desafio.Infrastructure.Tests;
+using Desafio.Infrastructure.ModelViews;
+using Desafio.Infrastructure.Services;
+
+namespace Desafio.Infrastructure.Tests.Services;
 
 public class StockCalculatorTests
 {
-    private async Task<StockCalculator> CreateAsync()
+    private static async Task<StockCalculator> CreateAsync()
     {
         using var directory = new TempDirectory();
         await File.WriteAllTextAsync(Path.Combine(directory.BaseDirectory, "estoque.json"), """

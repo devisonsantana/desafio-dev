@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace Desafio.Infrastructure;
+namespace Desafio.Infrastructure.Services;
 
 public sealed class JsonFileReader
 {

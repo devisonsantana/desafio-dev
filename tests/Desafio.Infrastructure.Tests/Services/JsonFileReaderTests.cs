@@ -1,7 +1,8 @@
 ﻿using System.Text.Json;
 using Desafio.Core;
+using Desafio.Infrastructure.Services;
 
-namespace Desafio.Infrastructure.Tests;
+namespace Desafio.Infrastructure.Tests.Services;
 
 public class JsonFileReaderTests
 {
