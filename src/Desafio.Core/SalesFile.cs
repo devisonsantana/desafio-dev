@@ -4,5 +4,5 @@ namespace Desafio.Core;
 
 public sealed class SalesFile
 {
-    [JsonPropertyName("vendas")] public IReadOnlyList<Sale> Sales { get; init; } = [];
+    [JsonPropertyName("vendas")] public required IReadOnlyList<Sale> Sales { get; init; }
 }
